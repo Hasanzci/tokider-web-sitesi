@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOKİDER | TOKİ Evleri Eğitim Derneği – Malatya</title>
+<meta name="description" content="TOKİDER – TOKİ Evleri Eğitim Derneği. 2012'den beri Malatya TOKİ Evleri bölgesinde insani, İslami ve ahlaki eğitim, sohbet programları, Kur'an kursları, iftar buluşmaları ve yardım çalışmaları.">
+<meta name="theme-color" content="#08362a">
+<link rel="icon" type="image/svg+xml" href="assets/logo/amblem.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ OKUMA İLERLEME ÇUBUĞU ============ -->
+<div class="okuma-cubugu" id="okumaCubugu"></div>
+
+<!-- ============ ÜST ŞERİT (YAVAŞ KAYAN DİYANET AYETLERİ) ============ -->
+<div class="ust-serit">
+  <div class="kap ust-serit-ic">
+    <span class="tarih" id="bugun"></span>
+    <div class="kayan" id="kayanKutu">
+      <b title="Diyanet İşleri Başkanlığı Kur'an-ı Kerim Meali"><span class="hilal-mini"></span>Ayet-i Kerimeler</b>
+      <div class="kayan-pencere">
+        <div class="kayan-yazi" id="kayanYazi"></div>
+      </div>
+      <div class="kayan-kontrol">
+        <button type="button" class="kayan-btn" id="kayanDurdur" aria-label="Kaymayı duraklat veya başlat" title="Duraklat / Başlat">⏸</button>
+        <button type="button" class="kayan-btn kayan-hiz-btn" id="kayanHiz" aria-label="Kayma hızını değiştir" title="Kayma hızını değiştir">Yavaş</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ÜST MENÜ ============ -->
+<header class="nav" id="nav">
+  <div class="kap nav-ic">
+    <a href="#manset" class="marka">
+      <img src="assets/logo/amblem.svg" alt="TOKİDER amblemi">
+      <span class="marka-yazi"><b>TOKİDER</b><small>TOKİ Evleri Eğitim Derneği</small></span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Ana menü">
+      <a href="#manset" class="aktif-link">Manşet</a>
+      <a href="#haberler">Haberler</a>
+      <a href="#ayetler">Ayet Seçkisi</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#faaliyetler">Faaliyetler</a>
+      <a href="#projeler">Projeler</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#sss">S.S.S.</a>
+      <a href="#iletisim">İletişim</a>
+      <a href="#destek" class="btn btn-altin btn-kucuk">Destek Ol</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="menu-perde" id="menuPerde"></div>
+
+<!-- ============ MANŞET ============ -->
+<section class="manset-bolum" id="manset">
+  <div class="kap manset-grid">
+    <div class="manset" id="manset-kutu">
+      <div class="manset-slaytlar" id="mansetSlaytlar"></div>
+      <button type="button" class="manset-ok manset-sol" id="mansetOnceki" aria-label="Önceki manşet">&#8249;</button>
+      <button type="button" class="manset-ok manset-sag" id="mansetSonraki" aria-label="Sonraki manşet">&#8250;</button>
+      <div class="manset-sayfalar" id="mansetSayfalar"></div>
+    </div>
+    <aside class="manset-yan">
+      <div class="gunun-ayeti" id="gununAyetiKutu">
+        <div class="gunun-ust">
+          <span class="gunun-baslik"><span class="hilal"></span>Günün Ayet-i Kerimesi</span>
+          <span class="diyanet-etiket">Diyanet Meali</span>
+        </div>
+        <p class="ayet-arapca" id="gununAyetiArapca" dir="rtl" lang="ar"></p>
+        <p class="ayet-metin" id="gununAyeti"></p>
+        <div class="gunun-alt">
+          <span class="ayet-kaynak" id="gununAyetiKaynak"></span>
+          <div class="gunun-butonlar">
+            <button type="button" class="ga-btn" id="gaOnceki" title="Önceki Ayet" aria-label="Önceki Ayet">‹</button>
+            <button type="button" class="ga-btn" id="gaRastgele" title="Rastgele Ayet" aria-label="Rastgele Ayet">⟳</button>
+            <button type="button" class="ga-btn" id="gaKopyala" title="Ayeti Kopyala" aria-label="Ayeti Kopyala">📋</button>
+            <button type="button" class="ga-btn" id="gaSonraki" title="Sonraki Ayet" aria-label="Sonraki Ayet">›</button>
+          </div>
+        </div>
+      </div>
+      <div class="son-haberler">
+        <div class="son-haberler-ust">
+          <h3>Son Haberler</h3>
+          <a href="#haberler" class="tumunu-gor">Tümü →</a>
+        </div>
+        <ul id="sonHaberler"></ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Hızlı Erişim & Özet Şeridi -->
+  <div class="kap ozet-serit">
+    <a href="#faaliyetler" class="ozet-kart">
+      <span class="ozet-ikon">📖</span>
+      <div><b>Eğitim &amp; Sohbet Halkaları</b><small>5–10 yaştan yetişkinlere haftalık programlar</small></div>
+    </a>
+    <a href="#ayetler" class="ozet-kart">
+      <span class="ozet-ikon">🕌</span>
+      <div><b>82 Seçilmiş Ayet-i Kerime</b><small>Diyanet İşleri Başkanlığı resmi mealiyle</small></div>
+    </a>
+    <a href="#projeler" class="ozet-kart">
+      <span class="ozet-ikon">🧭</span>
+      <div><b>Gençlik &amp; Tarih Gezileri</b><small>80 gencimizle kültür ve medeniyet rotaları</small></div>
+    </a>
+    <a href="#destek" class="ozet-kart">
+      <span class="ozet-ikon">🤝</span>
+      <div><b>İftar &amp; Yardım Eli</b><small>Yetim kardeş buluşmaları ve hayır sofraları</small></div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ HABERLER ============ -->
+<section class="bolum bolum-krem" id="haberler">
+  <div class="kap">
+    <div class="bolum-bas sol">
+      <div>
+        <span class="ust-baslik">Dernekten Haberler</span>
+        <h2>Faaliyetlerimizden ve buluşmalarımızdan</h2>
+      </div>
+      <div class="filtre" id="haberFiltre"></div>
+    </div>
+    <div class="haber-grid" id="haberGrid"></div>
+  </div>
+</section>
+
+<!-- ============ KUR'AN-I KERİM'DEN HİKMETLER (DİYANET AYET SEÇKİSİ) ============ -->
+<section class="bolum ayetler-bolum" id="ayetler">
+  <div class="desen"></div>
+  <div class="kap">
+    <div class="bolum-bas">
+      <span class="ust-baslik acik">İlahi Rehberlik · Diyanet İşleri Başkanlığı Meali</span>
+      <h2>Kur'an-ı Kerim'den Hikmetler</h2>
+      <p>Hayatımıza yön veren, kardeşliğimizi pekiştiren, ilim, infak, sabır ve güzel ahlakı öğütleyen <b>82 seçilmiş Ayet-i Kerime</b>. Tüm mealler eksiksiz olarak <b>Diyanet İşleri Başkanlığı</b> resmi Kur'an-ı Kerim mealinden alınmıştır.</p>
+    </div>
+
+    <div class="ayet-araclar">
+      <div class="ayet-kategoriler" id="ayetFiltre"></div>
+      <div class="ayet-arama-kutu">
+        <input type="search" id="ayetAra" placeholder="Sure adı, konu veya kelime ara... (Örn: Bakara, sabır, ilim)" aria-label="Ayetlerde ara">
+        <button type="button" class="btn btn-altin btn-kucuk" id="rastgeleAyetBtn">✦ Rastgele Ayet</button>
+        <button type="button" class="btn btn-cam btn-kucuk aktif" id="arapcaToggle">Arapça Metin: Açık</button>
+      </div>
+    </div>
+
+    <div class="ayet-vitrin" id="ayetVitrin"></div>
+
+    <div class="daha-fazla">
+      <button type="button" class="btn btn-altin" id="dahaFazlaAyet">Daha Fazla Ayet-i Kerime Göster</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HAKKIMIZDA ============ -->
+<section class="bolum hakkimizda" id="hakkimizda">
+  <div class="desen"></div>
+  <div class="kap">
+    <div class="iki-kolon">
+      <div class="amblem-alan">
+        <div class="amblem-halka">
+          <img src="assets/logo/amblem.svg" alt="TOKİDER amblemi">
+          <span class="amblem-rozet">Mayıs 2012'den Beri</span>
+        </div>
+      </div>
+      <div>
+        <span class="ust-baslik acik">Hakkımızda</span>
+        <h2>Hikâyemiz ve Gayemiz</h2>
+        <p class="buyuk">Derneğimiz, TOKİ Evleri bölgesi sakinlerine yönelik insani, İslami ve ahlaki eğitim çalışmaları ile sosyal-kültürel etkinlikler ve yardım faaliyetleri yapmak amacıyla <b>Mayıs 2012</b>'de yedi kurucu üyemizin gayretleriyle kuruldu.</p>
+        <p>Kurulduğu günden itibaren üyelerinin gayret ve fedakârlığıyla birçok çalışmaya imza attı. İman, salih amel, hakkı ve sabrı tavsiye esaslarına göre yaşama ve yaşatma gayretiyle; evlerde, dernek büromuzda ve Bedir Mescidi'nde sohbet programlarımızı sürdürüyoruz.</p>
+        <figure class="ayet-kart">
+          <div class="ayet-kart-arapca" dir="rtl" lang="ar">وَمَنْ أَحْسَنُ قَوْلًۭا مِّمَّن دَعَآ إِلَى ٱللَّهِ وَعَمِلَ صَٰلِحًۭا وَقَالَ إِنَّنِى مِنَ ٱلْمُسْلِمِينَ</div>
+          <blockquote>“(İnsanları) Allah'a çağıran, iyi iş yapan ve ‘Ben müslümanlardanım’ diyenden kimin sözü daha güzeldir?”</blockquote>
+          <figcaption>Fussilet Suresi, 33. Ayet · <span>Diyanet İşleri Başkanlığı Meali · Bu ilahi beyanı kendimize temel ilke edindik.</span></figcaption>
+        </figure>
+        <div class="sayilar">
+          <div><b data-say="2012">2012</b><span>Kuruluş Yılı</span></div>
+          <div><b data-say="7">7</b><span>Kurucu Üye</span></div>
+          <div><b data-say="80">80</b><span>Genç ile Tarih Gezisi</span></div>
+          <div><b id="fotoSayisi" data-say="134">134</b><span>Arşivdeki Kare</span></div>
+          <div><b id="ayetSayisi" data-say="82">82</b><span>Seçilmiş Ayet</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Temel İlkelerimiz -->
+    <div class="ilkeler-bolum">
+      <h3 class="alt-bolum-baslik">Temel İlkelerimiz ve Değerlerimiz</h3>
+      <div class="ilkeler-grid">
+        <article class="ilke-kart">
+          <span class="ilke-no">01</span>
+          <h4>İman ve İhlas</h4>
+          <p>Yaptığımız her eğitim, sohbet ve yardım çalışmasında yalnızca Allah'ın rızasını gözetmek ve samimiyeti esas almak.</p>
+          <small>“De ki: Şüphesiz benim namazım, kurbanım, hayatım ve ölümüm hepsi alemlerin Rabbi Allah içindir.” (En'âm, 162)</small>
+        </article>
+        <article class="ilke-kart">
+          <span class="ilke-no">02</span>
+          <h4>İlim ve Hikmet</h4>
+          <p>Çocuklarımızdan yetişkinlerimize kadar Kur'an-ı Kerim, Siyer, Tefsir ve Hadis halkalarıyla sahih dini bilgiyi hikmetle buluşturmak.</p>
+          <small>“De ki: Hiç bilenlerle bilmeyenler bir olur mu? Doğrusu ancak akıl sahipleri bunları hakkıyla düşünür.” (Zümer, 9)</small>
+        </article>
+        <article class="ilke-kart">
+          <span class="ilke-no">03</span>
+          <h4>Kardeşlik ve Vefa</h4>
+          <p>Mahallemizde komşuluk hukukunu, muhabbeti, büyüklerimize hürmeti ve küçüklerimize şefkati canlı tutmak.</p>
+          <small>“Müminler ancak kardeştirler. Öyleyse kardeşlerinizin arasını düzeltin ve Allah'tan korkun ki esirgenesiniz.” (Hucurât, 10)</small>
+        </article>
+        <article class="ilke-kart">
+          <span class="ilke-no">04</span>
+          <h4>İnfak ve Yardımlaşma</h4>
+          <p>Yetim kardeşlerimizle ve ihtiyaç sahibi ailelerimizle aynı sofrayı paylaşmak; iyilik ve takvada yarışmak.</p>
+          <small>“İyilik ve (Allah'ın yasaklarından) sakınma üzerinde yardımlaşın, günah ve düşmanlık üzerine yardımlaşmayın.” (Mâide, 2)</small>
+        </article>
+      </div>
+    </div>
+
+    <!-- Zaman Çizelgesi -->
+    <div class="tarihce-bolum">
+      <h3 class="alt-bolum-baslik">Kuruluştan Bugüne Yolculuğumuz</h3>
+      <div class="zaman-cizelgesi">
+        <div class="zaman-adim">
+          <span class="zaman-yil">Mayıs 2012</span>
+          <h4>Derneğimizin Kuruluşu</h4>
+          <p>Malatya TOKİ Evleri bölgesinde 7 kurucu üyemizin öncülüğünde eğitim, kültür ve yardımlaşma gayesiyle yola çıktık.</p>
+        </div>
+        <div class="zaman-adim">
+          <span class="zaman-yil">2013 – 2015</span>
+          <h4>Sohbet Meclisleri &amp; Karakter Eğitimi</h4>
+          <p>Evde Karakter Eğitimi (EKE) grupları, Bedir Mescidi ve dernek merkezimizdeki haftalık tefsir-hadis halkaları başladı.</p>
+        </div>
+        <div class="zaman-adim">
+          <span class="zaman-yil">2016 – 2017</span>
+          <h4>Yaz Kur'an Kursları &amp; Kadınlar Komisyonu</h4>
+          <p>Halk Eğitim Merkezi işbirliğiyle yaz kursları, hanımlara özel Esmaü'l-Hüsna ve okuma programları ile spor etkinlikleri genişledi.</p>
+        </div>
+        <div class="zaman-adim">
+          <span class="zaman-yil">2018 – 2019</span>
+          <h4>TOKİ Gençliği Tarihle Buluşuyor</h4>
+          <p>Gençlik ve Spor Bakanlığı desteğiyle 80 gencimizle Ankara, İstanbul, Çanakkale, Battalgazi ve Darende gezileri ile satranç turnuvaları gerçekleştirildi.</p>
+        </div>
+        <div class="zaman-adim">
+          <span class="zaman-yil">Günümüz</span>
+          <h4>Nesiller Boyu İyilik ve Kardeşlik</h4>
+          <p>Her yaştan komşumuza dokunan eğitimlerimiz, iftar sofralarımız, yetim aile buluşmalarımız ve aylık konuklu sohbetlerimizle hizmete devam ediyoruz.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAALİYETLER ============ -->
+<section class="bolum" id="faaliyetler">
+  <div class="kap">
+    <div class="bolum-bas">
+      <span class="ust-baslik">Faaliyetlerimiz</span>
+      <h2>Her yaştan insanımıza dokunan çalışmalar</h2>
+      <p>Okul öncesinden yetişkinlere, hanımlardan gençlere kadar mahallemizin her ferdi için özenle hazırlanmış eğitim, sosyal ve kültürel programlarımız.</p>
+    </div>
+    <div class="faaliyet-grid">
+      <article class="faaliyet">
+        <div class="faaliyet-gorsel" style="background-image:url('assets/galeri/03%20%C3%87ocuklar%C4%B1m%C4%B1z%20ve%20Kur%27an%20E%C4%9Fitimi/cocuk-01.jpg')">
+          <span class="yas">5–10 Yaş</span>
+        </div>
+        <div class="faaliyet-ic">
+          <h3>Evde Karakter Eğitimi (EKE)</h3>
+          <p>Küçük yaşlardaki çocuklarımızın gönüllerinde Allah'ın rızasını kazandıracak iyilik, doğruluk ve hayır yolunun yer etmesi için haftalık programlar yürütülür.</p>
+          <blockquote class="faaliyet-ayet">“Yavrucuğum! Namazı kıl, iyiliği emret, kötülükten vazgeçirmeye çalış...” <cite>Lokmân, 17</cite></blockquote>
+          <a href="#galeri" class="faaliyet-btn" data-album="2">Albümü İncele →</a>
+        </div>
+      </article>
+
+      <article class="faaliyet">
+        <div class="faaliyet-gorsel" style="background-image:url('assets/galeri/02%20Gen%C3%A7lerimizle%20Bulu%C5%9Fmalar/genclik-01.jpg')">
+          <span class="yas">Ortaokul &amp; Lise</span>
+        </div>
+        <div class="faaliyet-ic">
+          <h3>Öğrencilere Yönelik Çalışmalar</h3>
+          <p>Kur'an-ı Kerim okumayı öğretme, kitap okuma halkaları ve değerler eğitimi. Sınıf seviyelerine göre gruplar oluşturulur, öğretmenlerimiz öğrencilerle yakından ilgilenir.</p>
+          <blockquote class="faaliyet-ayet">“Hakikaten onlar, Rablerine inanmış gençlerdi. Biz de onların hidayetini arttırdık.” <cite>Kehf, 13</cite></blockquote>
+          <a href="#galeri" class="faaliyet-btn" data-album="1">Gençlik Kareleri →</a>
+        </div>
+      </article>
+
+      <article class="faaliyet">
+        <div class="faaliyet-gorsel" style="background-image:url('assets/galeri/04%20Sohbet%20Meclislerimiz/sohbet-01.jpg')">
+          <span class="yas">Yetişkinler</span>
+        </div>
+        <div class="faaliyet-ic">
+          <h3>Haftalık ve Aylık Sohbetler</h3>
+          <p>Dernek merkezimizde, evlerde ve Bedir Mescidi'nde tefsir, hadis, kavram ve kitap okumaları; her ay alanında uzman bir hocamızla “Ay Sonu Sohbet” programları.</p>
+          <blockquote class="faaliyet-ayet">“...Allah sizden inananları ve kendilerine ilim verilenleri derecelerle yükseltsin.” <cite>Mücâdele, 11</cite></blockquote>
+          <a href="#galeri" class="faaliyet-btn" data-album="3">Sohbet Meclisleri →</a>
+        </div>
+      </article>
+
+      <article class="faaliyet">
+        <div class="faaliyet-gorsel" style="background-image:url('assets/galeri/10%20Dernek%20Merkezimiz/merkez-01.jpg')">
+          <span class="yas">Hanımlar</span>
+        </div>
+        <div class="faaliyet-ic">
+          <h3>Kadınlar Komisyonu</h3>
+          <p>Hanımlarımıza yönelik düzenli tefsir ve hadis okumaları, kitap tahlilleri, aile içi iletişim seminerleri ve Esmaü'l-Hüsna dersleri.</p>
+          <blockquote class="faaliyet-ayet">“Mümin erkeklerle mümin kadınlar da birbirlerinin velileridir. Onlar iyiliği emreder...” <cite>Tevbe, 71</cite></blockquote>
+          <a href="#iletisim" class="faaliyet-btn">Bilgi &amp; Katılım →</a>
+        </div>
+      </article>
+
+      <article class="faaliyet vurgulu">
+        <div class="faaliyet-gorsel" style="background-image:url('assets/galeri/08%20Spor%20Etkinlikleri/spor-01.jpg')">
+          <span class="yas">Her Yaz</span>
+        </div>
+        <div class="faaliyet-ic">
+          <h3>Yaz Kur'an Kursu &amp; Etkinlikler</h3>
+          <p>Halk Eğitim Merkezi işbirliğiyle Kur'an-ı Kerim, siyer ve temel dini bilgiler; yanında <b>satranç, masa tenisi, futbol, doğa gezileri</b>, ikramlar ve ödüllü yarışmalar.</p>
+          <blockquote class="faaliyet-ayet">“Şüphesiz ki bu Kur'an en doğru yola iletir; iyi davranışlarda bulunan müminlere... müjdeler.” <cite>İsrâ, 9</cite></blockquote>
+          <a href="#galeri" class="faaliyet-btn" data-album="7">Etkinlik Kareleri →</a>
+        </div>
+      </article>
+
+      <article class="faaliyet">
+        <div class="faaliyet-gorsel" style="background-image:url('assets/galeri/01%20%C4%B0ftar%20Sofralar%C4%B1m%C4%B1z/iftar-01.jpg')">
+          <span class="yas">Yıl Boyu</span>
+        </div>
+        <div class="faaliyet-ic">
+          <h3>İftar ve Yardım Çalışmaları</h3>
+          <p>Ramazan'da mahalle iftarları ve kumanya dağıtımı, “Yetim Kardeş Aile Buluşmaları” ve yıl boyu ihtiyaç sahibi ailelerimize maddi-manevi destek.</p>
+          <blockquote class="faaliyet-ayet">“Onlar, kendi canları çekmesine rağmen yemeği yoksula, yetime ve esire yedirirler.” <cite>İnsân, 8</cite></blockquote>
+          <a href="#galeri" class="faaliyet-btn" data-album="0">İftar Sofralarımız →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJE ============ -->
+<section class="bolum bolum-krem" id="projeler">
+  <div class="kap proje">
+    <div class="proje-vitrin">
+      <div class="proje-gorsel" id="projeGorsel">
+        <div class="proje-rozet">Gençlik ve Spor Bakanlığı Desteğiyle</div>
+      </div>
+      <div class="proje-sayilar">
+        <div><b>80</b><span>Genç Katılımcı</span></div>
+        <div><b>5+</b><span>Tarihi Şehir &amp; Rota</span></div>
+        <div><b>4</b><span>Büyük Etkinlik</span></div>
+      </div>
+    </div>
+    <div class="proje-metin">
+      <span class="ust-baslik">Öne Çıkan Proje</span>
+      <h2>TOKİ Gençliği Tarihle Buluşuyor</h2>
+      <p><b>80 genç kardeşimiz</b> ve gönüllü hocalarımızla tarihimizi, dini değerlerimizi ve doğal güzelliklerimizi yerinde keşfettik. Ankara, İstanbul ve Çanakkale'den Malatya'nın kadim beldeleri Battalgazi ve Darende'ye uzanan unutulmaz bir medeniyet yolculuğu gerçekleştirdik.</p>
+      <figure class="proje-ayet">
+        <blockquote>“Onlar, yeryüzünde gezip de kendilerinden öncekilerin akıbetlerinin nice olduğuna bakmadılar mı?...”</blockquote>
+        <figcaption>Rûm Suresi, 9. Ayet · Diyanet İşleri Başkanlığı Meali</figcaption>
+      </figure>
+      <ul class="rota" id="projeRota"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERİ ============ -->
+<section class="bolum" id="galeri">
+  <div class="kap">
+    <div class="bolum-bas">
+      <span class="ust-baslik">Foto Galeri</span>
+      <h2>Kareler, hatıralar ve kardeşlik anları</h2>
+      <p>Sofralarımızdan, sohbetlerimizden, gezilerimizden ve çocuklarımızın tebessümünden objektife yansıyanlar.</p>
+    </div>
+
+    <!-- Canlı Kayan Fotoğraf Şeridi -->
+    <div class="canli-serit-kapsayici" aria-label="Arşivden akış">
+      <div class="canli-serit" id="canliFotoSerit"></div>
+    </div>
+
+    <div class="album-kartlar" id="albumKartlar"></div>
+    <div class="album-ayet" id="albumAyet"></div>
+    <div class="galeri-grid" id="galeriGrid"></div>
+    <div class="daha-fazla"><button type="button" class="btn btn-cizgi-koyu" id="dahaFazla">Albümdeki Diğer Fotoğrafları Göster</button></div>
+  </div>
+</section>
+
+<!-- ============ AYET & HADİS BANDI ============ -->
+<section class="bant">
+  <div class="desen"></div>
+  <div class="kap bant-grid">
+    <div class="bant-kart">
+      <span class="bant-etiket">Kur'an-ı Kerim · Alak Suresi, 1–5</span>
+      <p class="bant-arapca" dir="rtl" lang="ar">ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ</p>
+      <blockquote>“Yaratan Rabbinin adıyla oku! O, insanı bir aşılanmış yumurtadan yarattı. Oku! Rabbin, en büyük kerem sahibidir. O Rab ki kalemle (yazmayı) öğretti. İnsana bilmedikleri şeyi öğretti.”</blockquote>
+      <cite>Diyanet İşleri Başkanlığı Meali</cite>
+    </div>
+    <div class="bant-kart vurgulu-bant">
+      <span class="bant-etiket">Hadis-i Şerif · Buhârî, İlim, 15</span>
+      <p class="bant-arapca" dir="rtl" lang="ar">لَا حَسَدَ إِلَّا فِي اثْنَتَيْنِ</p>
+      <blockquote>“Yalnız şu iki kişiye gıpta edilir: Allah'ın verdiği malı hak yolunda harcayan kimse ile Allah'ın verdiği ilimle hükmeden ve onu başkalarına öğreten kimse.”</blockquote>
+      <cite>Sahîh-i Buhârî</cite>
+    </div>
+    <div class="bant-kart">
+      <span class="bant-etiket">Kur'an-ı Kerim · التوبة / Tevbe, 119</span>
+      <p class="bant-arapca" dir="rtl" lang="ar">يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱتَّقُوا۟ ٱللَّهَ وَكُونُوا۟ مَعَ ٱلصَّٰدِقِينَ</p>
+      <blockquote>“Ey iman edenler! Allah'tan korkun ve doğrularla beraber olun.”</blockquote>
+      <cite>Tevbe Suresi, 119. Ayet · Diyanet İşleri Başkanlığı Meali</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIKÇA SORULAN SORULAR (S.S.S.) ============ -->
+<section class="bolum bolum-krem" id="sss">
+  <div class="kap iki-kolon sss-bolum">
+    <div>
+      <span class="ust-baslik">Merak Edilenler</span>
+      <h2>Sıkça Sorulan Sorular</h2>
+      <p>Derneğimizin eğitim halkaları, çocuk ve gençlik çalışmaları, gönüllülük ve bağış süreçleri hakkında sıkça sorulan soruların yanıtları.</p>
+      <div class="sss-davet">
+        <h3>Gönüllümüz Olmak İster misiniz?</h3>
+        <p>Eğitim çalışmalarımızda, iftar organizasyonlarımızda veya gençlik gezilerimizde yer almak için kapımız tüm komşularımıza açıktır.</p>
+        <div class="sss-butonlar">
+          <a href="#iletisim" class="btn btn-altin btn-kucuk">Bize Ulaşın</a>
+          <a href="#destek" class="btn btn-cizgi-koyu btn-kucuk">Hayra Ortak Ol</a>
+        </div>
+      </div>
+    </div>
+    <div class="sss-liste" id="sssListe">
+      <details class="sss-item" open>
+        <summary>Dernek faaliyetlerine ve sohbet programlarına kimler katılabilir?</summary>
+        <p>Programlarımız Malatya TOKİ Evleri sakinleri başta olmak üzere tüm halkımıza açıktır ve tamamen ücretsizdir. Haftalık sohbetlerimize, hanımlar komisyonu derslerimize ve aylık konuklu programlarımıza davetlisiniz.</p>
+      </details>
+      <details class="sss-item">
+        <summary>Çocuklar için Evde Karakter Eğitimi (EKE) ve Yaz Kur'an Kursu kayıtları nasıl yapılıyor?</summary>
+        <p>5–10 yaş grubu için Evde Karakter Eğitimi (EKE), ortaokul ve lise öğrencilerimiz için değerler eğitimi ve Halk Eğitim Merkezi işbirliğiyle düzenlenen Yaz Kur'an Kurslarımız için dernek merkezimize uğrayarak veya e-posta/sosyal medya üzerinden bize ulaşarak kayıt yaptırabilirsiniz.</p>
+      </details>
+      <details class="sss-item">
+        <summary>Sitede yer alan Kur'an-ı Kerim ayetlerinin mealleri hangi kaynaktan alınmıştır?</summary>
+        <p>Sitemizdeki tüm Ayet-i Kerime mealleri, <b>Diyanet İşleri Başkanlığı / Türkiye Diyanet Vakfı</b> resmi Kur'an-ı Kerim mealinden birebir kontrol edilerek ve Arapça mushaf metinleriyle birlikte yayınlanmaktadır.</p>
+      </details>
+      <details class="sss-item">
+        <summary>İftar sofralarına, kumanya çalışmalarına veya yetim aile buluşmalarına nasıl destek olabilirim?</summary>
+        <p>“Destek Ol” bölümündeki resmi dernek banka hesabımız (Ziraat Bankası Malatya Şubesi) üzerinden veya bizzat dernek merkezimizi ziyaret ederek eğitim ve yardım faaliyetlerimize katkıda bulunabilirsiniz.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORTAKLAR ============ -->
+<section class="bolum ortaklar-bolum" id="ortaklar">
+  <div class="kap">
+    <div class="bolum-bas"><span class="ust-baslik">Birlikte Çalıştığımız Kurumlar</span></div>
+    <div class="ortaklar" id="ortaklarListe"></div>
+  </div>
+</section>
+
+<!-- ============ DESTEK ============ -->
+<section class="bolum destek" id="destek">
+  <div class="desen"></div>
+  <div class="kap destek-ic">
+    <div>
+      <span class="ust-baslik acik">Destek Ol · İnfak &amp; Yardımlaşma</span>
+      <h2>Bir çocuğun eğitimine, bir ailenin sofrasına ortak ol.</h2>
+      <p class="destek-arapca" dir="rtl" lang="ar">مَّثَلُ ٱلَّذِينَ يُنفِقُونَ أَمْوَٰلَهُمْ فِى سَبِيلِ ٱللَّهِ كَمَثَلِ حَبَّةٍ أَنۢبَتَتْ سَبْعَ سَنَابِلَ فِى كُلِّ سُنۢبُلَةٍۢ مِّا۟ئَةُ حَبَّةٍۢ ۗ وَٱللَّهُ يُضَٰعِفُ لِمَن يَشَآءُ ۗ وَٱللَّهُ وَٰسِعٌ عَلِيمٌ</p>
+      <p>“Allah yolunda mallarını harcayanların örneği, yedi başak bitiren bir dane gibidir ki, her başakta yüz dane vardır. Allah dilediğine kat kat fazlasını verir. Allah'ın lütfu geniştir, O herşeyi bilir.” <small>(Bakara Suresi, 261. Ayet · Diyanet İşleri Başkanlığı Meali)</small></p>
+    </div>
+    <div class="banka">
+      <div class="banka-ust">Ziraat Bankası · Malatya Şubesi (0183)</div>
+      <div class="banka-ad" id="hesapAdi">TOKİ Evleri Eğitim Derneği</div>
+      <!-- ⚠ IBAN broşürden okundu, yayına almadan önce dernekten teyit et! -->
+      <div class="iban" id="iban">TR49 0001 0001 0360 6940 1950 01</div>
+      <div class="banka-butonlar">
+        <button type="button" class="btn btn-altin btn-kucuk" id="ibanKopyala">📋 IBAN'ı Kopyala</button>
+        <button type="button" class="btn btn-cam btn-kucuk" id="hesapAdKopyala">Dernek Adını Kopyala</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ İLETİŞİM ============ -->
+<section class="bolum" id="iletisim">
+  <div class="kap iki-kolon iletisim">
+    <div>
+      <span class="ust-baslik">İletişim</span>
+      <h2>Kapımız herkese açık</h2>
+      <p>Programlarımıza katılmak, gönüllü olmak ya da bilgi almak için bize ulaşın.</p>
+      <ul class="iletisim-liste">
+        <li><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg><span><b>Adres</b>TOKİ İş Merkezi, Kat: 1, No: 6 · Malatya</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg><span><b>E-posta</b><a href="mailto:tokievleriegitimdernegi@gmail.com">tokievleriegitimdernegi@gmail.com</a></span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg><span><b>Facebook</b><a href="https://www.facebook.com/tokider" target="_blank" rel="noopener">/tokider</a></span></li>
+      </ul>
+      <div class="iletisim-aksiyon">
+        <a href="https://maps.google.com/maps?q=TOK%C4%B0%20%C4%B0%C5%9F%20Merkezi%20Malatya" target="_blank" rel="noopener" class="btn btn-cizgi-koyu btn-kucuk">📍 Yol Tarifi Al</a>
+        <a href="mailto:tokievleriegitimdernegi@gmail.com" class="btn btn-altin btn-kucuk">✉ E-posta Gönder</a>
+      </div>
+    </div>
+    <div class="harita">
+      <iframe title="TOKİDER konumu" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=TOK%C4%B0%20%C4%B0%C5%9F%20Merkezi%20Malatya&z=15&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer class="alt">
+  <div class="kap alt-ic">
+    <div class="alt-ust">
+      <div class="alt-marka">
+        <img src="assets/logo/amblem.svg" alt="TOKİDER">
+        <div><b>TOKİDER</b><span>TOKİ Evleri Eğitim Derneği · Malatya</span></div>
+      </div>
+      <div class="alt-linkler">
+        <a href="#manset">Manşet</a>
+        <a href="#haberler">Haberler</a>
+        <a href="#ayetler">Ayet Seçkisi</a>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#faaliyetler">Faaliyetler</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#destek">Destek Ol</a>
+        <a href="#iletisim">İletişim</a>
+      </div>
+    </div>
+    <p class="alt-arapca" dir="rtl" lang="ar">قُلْ إِنَّ صَلَاتِى وَنُسُكِى وَمَحْيَاىَ وَمَمَاتِى لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ</p>
+    <p class="alt-ayet">“De ki: Şüphesiz benim namazım, kurbanım, hayatım ve ölümüm hepsi alemlerin Rabbi Allah içindir.” <small>(En'âm Suresi, 162. Ayet · Diyanet İşleri Başkanlığı Meali)</small></p>
+    <p class="telif">© <span id="yil"></span> TOKİDER – TOKİ Evleri Eğitim Derneği · Tüm hakları saklıdır.</p>
+  </div>
+</footer>
+
+<!-- ============ YUKARI ÇIK BUTONU & BİLDİRİM ============ -->
+<button type="button" class="yukari-cik" id="yukariCik" aria-label="Sayfanın başına dön" title="Yukarı Çık">↑</button>
+<div class="bildirim" id="bildirim" role="status" aria-live="polite"></div>
+
+<!-- ============ HABER DETAY MODAL ============ -->
+<div class="haber-modal" id="haberModal" aria-hidden="true">
+  <div class="haber-modal-ic">
+    <button type="button" class="modal-kapat" id="modalKapat" aria-label="Kapat">&times;</button>
+    <div class="hm-kapak" id="hmKapak"></div>
+    <article class="hm-govde">
+      <div class="hm-meta"><span class="etiket-kirmizi" id="hmKategori"></span><time id="hmTarih"></time></div>
+      <h2 id="hmBaslik"></h2>
+      <p class="hm-ozet" id="hmOzet"></p>
+      <div id="hmMetin"></div>
+      <figure class="hm-ayet" id="hmAyet">
+        <div class="hm-ayet-ust">Bu Habere Eşlik Eden Ayet-i Kerime</div>
+        <p class="hm-arapca" id="hmArapca" dir="rtl" lang="ar"></p>
+        <blockquote id="hmSoz"></blockquote>
+        <figcaption id="hmKaynak"></figcaption>
+      </figure>
+      <h3 class="hm-foto-baslik" id="hmFotoBaslik">Fotoğraflar</h3>
+      <div class="hm-fotolar" id="hmFotolar"></div>
+      <div class="hm-gezinti">
+        <button type="button" class="btn btn-cizgi-koyu btn-kucuk" id="hmOnceki">‹ Önceki Haber</button>
+        <button type="button" class="btn btn-cizgi-koyu btn-kucuk" id="hmSonraki">Sonraki Haber ›</button>
+      </div>
+    </article>
+  </div>
+</div>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button type="button" class="lb-kapat" aria-label="Kapat">&times;</button>
+  <button type="button" class="lb-ok lb-sol" aria-label="Önceki">&#8249;</button>
+  <img alt="">
+  <button type="button" class="lb-ok lb-sag" aria-label="Sonraki">&#8250;</button>
+  <div class="lb-sayac"></div>
+</div>
+
+<script src="js/veri.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
