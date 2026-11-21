@@ -1,0 +1,8 @@
+baslik: Dernek Yönetimimizden Nezaket Ziyareti
+kategori: Ziyaret
+ozet: Dernek Başkanımız İbrahim Dilek ve yönetimimiz nezaket ziyaretinde bulundu.
+soz: Müminler ancak kardeştirler. Öyleyse kardeşlerinizin arasını düzeltin ve Allah'tan korkun ki esirgenesiniz.
+kaynak: Hucurât Suresi, 10. Ayet · Diyanet İşleri Başkanlığı Meali
+arapca: إِنَّمَا ٱلْمُؤْمِنُونَ إِخْوَةٌۭ فَأَصْلِحُوا۟ بَيْنَ أَخَوَيْكُمْ ۚ وَٱتَّقُوا۟ ٱللَّهَ لَعَلَّكُمْ تُرْحَمُونَ
+---
+Dernek Başkanımız Sayın İbrahim Dilek ve yönetim kurulumuz nezaket ziyaretinde bulundu. Ev sahiplerimize misafirperverlikleri için teşekkür ederiz.

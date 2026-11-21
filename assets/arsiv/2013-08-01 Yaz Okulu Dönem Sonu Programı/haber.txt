@@ -1,0 +1,8 @@
+baslik: Yaz Okulu Dönem Sonu Programı
+kategori: Yaz Okulu
+ozet: Yaz okulumuzun dönem sonu programından görüntüler.
+soz: Şüphesiz ki bu Kur'an en doğru yola iletir; iyi davranışlarda bulunan müminlere, kendileri için büyük bir mükafat olduğunu müjdeler.
+kaynak: İsrâ Suresi, 9. Ayet · Diyanet İşleri Başkanlığı Meali
+arapca: إِنَّ هَٰذَا ٱلْقُرْءَانَ يَهْدِى لِلَّتِى هِىَ أَقْوَمُ وَيُبَشِّرُ ٱلْمُؤْمِنِينَ ٱلَّذِينَ يَعْمَلُونَ ٱلصَّٰلِحَٰتِ أَنَّ لَهُمْ أَجْرًۭا كَبِيرًۭا
+---
+Toki Evleri Eğitim Derneği'nin düzenlemiş olduğu Yaz Okulu dönem sonu programından görüntüler. Program Kernek Anadolu Lisesi Konferans Salonu'nda Kur'an-ı Kerim ve meali, şiir, skeç ve ödül töreniyle gerçekleştirildi.

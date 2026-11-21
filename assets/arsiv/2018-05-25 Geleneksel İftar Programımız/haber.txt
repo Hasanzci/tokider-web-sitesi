@@ -1,0 +1,8 @@
+baslik: Geleneksel İftar Programımız
+kategori: Ramazan
+ozet: Her yıl geleneksel olarak düzenlediğimiz iftar programımızda buluştuk.
+soz: Onlar, kendi canları çekmesine rağmen yemeği yoksula, yetime ve esire yedirirler.
+kaynak: İnsân Suresi, 8. Ayet · Diyanet İşleri Başkanlığı Meali
+arapca: وَيُطْعِمُونَ ٱلطَّعَامَ عَلَىٰ حُبِّهِۦ مِسْكِينًۭا وَيَتِيمًۭا وَأَسِيرًا
+---
+Her yıl geleneksel olarak yaptığımız iftar programına katılan ve emeği geçen arkadaşlardan Allah razı olsun.

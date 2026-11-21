@@ -12,6 +12,7 @@
   - **Kur'an-ı Kerim'den Hikmetler (82 Ayet Seçkisi):** 6 konu başlığında (*İlim & Hikmet*, *İnfak & Yardımlaşma*, *Ahlak & Kardeşlik*, *İbadet & Takva*, *Sabır & Tevekkül*, *Aile & Gençlik*) filtreleme, anlık arama, Arapça aç/kapat, rastgele ayet seçimi ve tek tıkla kopyalama.
   - **Hakkımızda, Temel İlkelerimiz & Tarihçe Zaman Çizelgesi:** 2012 kuruluşundan bugüne TOKİDER'in yolculuğu ve 4 temel ilkesi.
   - **Fotoğraflı Faaliyet Kartları & Canlı Galeri Şeridi:** Arşiv fotoğraflarıyla zenginleştirilmiş faaliyet kartları, akıcı fotoğraf şeridi ve Sıkça Sorulan Sorular (S.S.S.) bölümü.
+  - **Yıllar İçinde TOKİDER (Facebook Arşivi):** 2013–2020 arası 48 etkinlik ve 331 fotoğraf, yıllara göre filtrelenebilir. Her kayıtta Facebook açıklaması, Diyanet mealiyle bir ayet-i kerime ve fotoğraflar yer alıyor.
   - **Tam Mobil ve Tablet Senkronizasyonu:** Mobil çekmece menü, dokunmatik kaydırma (manşet ve lightbox), okuma ilerleme çubuğu ve yukarı çık butonu.
 
 ## Klasör Yapısı
@@ -19,6 +20,7 @@
 ```
 assets/
   haberler/   → MANŞET + HABERLER (her klasör bir haber)
+  arsiv/      → YILLAR İÇİNDE TOKİDER (klasör adı "YYYY-AA-GG Başlık"; tarih buradan okunur)
   galeri/     → FOTO GALERİ (her klasör bir albüm)
   ortaklar/   → Ortak kurum logoları (dosya adı = kurum adı)
   logo/       → amblem.svg (keskin vektör logo) + orijinal logo

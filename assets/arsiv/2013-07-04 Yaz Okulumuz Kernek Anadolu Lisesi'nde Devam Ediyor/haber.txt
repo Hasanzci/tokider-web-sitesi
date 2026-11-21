@@ -1,0 +1,8 @@
+baslik: Yaz Okulumuz Kernek Anadolu Lisesi'nde Devam Ediyor
+kategori: Yaz Okulu
+ozet: Yaz okulumuz Kernek Anadolu Lisesi'nde, akıllı tahtaların kullanıldığı derslerle devam ediyor.
+soz: Yaratan Rabbinin adıyla oku!
+kaynak: Alak Suresi, 1. Ayet · Diyanet İşleri Başkanlığı Meali
+arapca: بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ
+---
+Yaz Okulumuz Kernek Anadolu Lisesi'nde, akıllı tahtaların kullanıldığı derslerde, ilahiyat mezunu hocalarımızın nezaretinde devam etmektedir.

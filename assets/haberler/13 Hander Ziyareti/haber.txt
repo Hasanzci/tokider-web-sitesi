@@ -1,10 +1,11 @@
-tarih: 
+baslik: Hander Derneği'ne Ziyaret
+tarih: 20 Ocak 2017
 kategori: Ziyaret
-ozet: Dernek üyelerimizle gerçekleştirdiğimiz Hander ziyaretinden kareler.
+ozet: Yeşeren Umutlar Derneği ile birlikte Hander Derneği'ni ziyaret ettik.
 soz: Müminler ancak kardeştirler. Öyleyse kardeşlerinizin arasını düzeltin ve Allah'tan korkun ki esirgenesiniz.
 kaynak: Hucurât Suresi, 10. Ayet · Diyanet İşleri Başkanlığı Meali
 arapca: إِنَّمَا ٱلْمُؤْمِنُونَ إِخْوَةٌۭ فَأَصْلِحُوا۟ بَيْنَ أَخَوَيْكُمْ ۚ وَٱتَّقُوا۟ ٱللَّهَ لَعَلَّكُمْ تُرْحَمُونَ
 ---
-Dernek üyelerimizle birlikte Hander ziyaretini gerçekleştirdik. Samimi bir ortamda geçen ziyarette sohbet edildi, hal hatır soruldu.
+Yeşeren Umutlar Derneği ile birlikte Hander Derneği'ni ziyaret ettik. Samimi bir ortamda geçen ziyarette kardeşlerimizle sohbet etme fırsatı bulduk.
 
-Bizleri ağırlayan ev sahiplerimize teşekkür ederiz.
+Kardeşlerimizin göstermiş olduğu misafirperverlikten dolayı Rabbim kendilerinden razı olsun.

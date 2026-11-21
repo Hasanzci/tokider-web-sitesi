@@ -1,0 +1,8 @@
+baslik: Yeşilyurt Belediyesi'nde Trafik Eğitimi
+kategori: Yaz Okulu
+ozet: Yaz okulu öğrencilerimiz Yeşilyurt Belediyesi'nde trafik eğitiminde.
+soz: Rahman'ın kulları yeryüzünde mütevazı yürürler. Bilgisizler kendilerine takıldıkları zaman onlara güzel ve yumuşak söz söylerler.
+kaynak: Furkân Suresi, 63. Ayet · Diyanet İşleri Başkanlığı Meali
+arapca: وَعِبَادُ ٱلرَّحْمَٰنِ ٱلَّذِينَ يَمْشُونَ عَلَى ٱلْأَرْضِ هَوْنًۭا وَإِذَا خَاطَبَهُمُ ٱلْجَٰهِلُونَ قَالُوا۟ سَلَٰمًۭا
+---
+Toki Evleri Eğitim Derneği yaz okulu öğrencileri Yeşilyurt Belediyesi'nde trafik eğitiminde.

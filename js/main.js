@@ -13,6 +13,7 @@
   const kacis = s => String(s || "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const H = V.haberler || [];
   const A = V.albumler || [];
+  const R = V.arsiv || [];
   const AYETLER = V.ayetler || [];
 
   /* ---- Bildirim (Toast) & Kopyalama Yardımcısı ---- */
@@ -342,11 +343,11 @@
 
   /* ---- Haber Detay Modal ---- */
   const modal = $("#haberModal");
-  let aktifHaber = 0;
-  function haberAc(i) {
-    const h = H[i];
+  let aktifHaber = 0, aktifListe = H, aktifOn = "haber";
+  function haberAc(i, liste = H, on = "haber") {
+    const h = liste[i];
     if (!h) return;
-    aktifHaber = i;
+    aktifHaber = i; aktifListe = liste; aktifOn = on;
     $("#hmKapak").style.backgroundImage = `url("${u(h.fotolar[0])}")`;
     $("#hmKapak").onclick = () => lbAc(h.fotolar, 0);
     $("#hmKategori").textContent = h.kategori;
@@ -375,19 +376,56 @@
     modal.classList.add("acik");
     modal.scrollTop = 0;
     document.body.classList.add("kilit");
-    history.replaceState(null, "", "#haber-" + (i + 1));
+    history.replaceState(null, "", `#${on}-${i + 1}`);
   }
   function haberKapat() {
     modal.classList.remove("acik");
     document.body.classList.remove("kilit");
-    history.replaceState(null, "", "#haberler");
+    history.replaceState(null, "", aktifOn === "arsiv" ? "#arsiv" : "#haberler");
   }
   $("#modalKapat").onclick = haberKapat;
   modal.addEventListener("click", e => { if (e.target === modal) haberKapat(); });
-  $("#hmOnceki").onclick = () => haberAc((aktifHaber - 1 + H.length) % H.length);
-  $("#hmSonraki").onclick = () => haberAc((aktifHaber + 1) % H.length);
-  const m = location.hash.match(/^#haber-(\d+)/);
-  if (m) haberAc(+m[1] - 1);
+  $("#hmOnceki").onclick = () => haberAc((aktifHaber - 1 + aktifListe.length) % aktifListe.length, aktifListe, aktifOn);
+  $("#hmSonraki").onclick = () => haberAc((aktifHaber + 1) % aktifListe.length, aktifListe, aktifOn);
+
+  /* ---- Arşiv: Yıllar İçinde TOKİDER ---- */
+  const yilKap = $("#yilSerit"), aGrid = $("#arsivGrid"), aDaha = $("#arsivDaha");
+  const AYK = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
+  const ASAYFA = 12;
+  let aSec = "Tümü", aGoster = ASAYFA, aListe = R;
+  function arsivCiz() {
+    aListe = aSec === "Tümü" ? R : R.filter(r => r.yil === aSec);
+    aGrid.innerHTML = "";
+    aListe.slice(0, aGoster).forEach((r, i) => {
+      const [y, a, g] = (r.iso || "--").split("-");
+      const k = el("article", "arsiv-kart");
+      k.style.animationDelay = Math.min((i % ASAYFA) * 40, 450) + "ms";
+      k.innerHTML = `<div class="gorsel"><img src="${u(r.fotolar[0])}" alt="" loading="lazy">
+        ${r.iso ? `<div class="takvim"><small>${AYK[+a - 1]}</small><b>${+g}</b><em>${y}</em></div>` : ""}
+        <span class="foto-say">📷 ${r.fotolar.length}</span></div>
+        <div class="ic"><span class="kat">${kacis(r.kategori)}</span><h3>${kacis(r.baslik)}</h3></div>`;
+      k.onclick = () => haberAc(i, aListe, "arsiv");
+      aGrid.appendChild(k);
+    });
+    aDaha.parentElement.style.display = aListe.length > aGoster ? "" : "none";
+  }
+  if (R.length && yilKap) {
+    const yillar = [...new Set(R.map(r => r.yil))].filter(Boolean);
+    const say = y => R.filter(r => r.yil === y).length;
+    const enCok = Math.max(...yillar.map(say));
+    $("#arsivAlt").textContent = `${yillar[yillar.length - 1]}'ten ${yillar[0]}'e ${R.length} etkinlik, ${R.reduce((t, r) => t + r.fotolar.length, 0)} fotoğraf.`;
+    ["Tümü", ...yillar].forEach((y, k) => {
+      const n = y === "Tümü" ? R.length : say(y);
+      const b = el("button", "yil" + (k ? "" : " aktif"), `<b>${y}</b><small>${n} etkinlik</small><i style="--o:${y === "Tümü" ? 100 : Math.round(n / enCok * 100)}%"></i>`);
+      b.onclick = () => { yilKap.querySelectorAll(".yil").forEach(x => x.classList.remove("aktif")); b.classList.add("aktif"); aSec = y; aGoster = ASAYFA; arsivCiz(); };
+      yilKap.appendChild(b);
+    });
+    aDaha.onclick = () => { aGoster += ASAYFA; arsivCiz(); };
+    arsivCiz();
+  } else if ($("#arsiv")) $("#arsiv").style.display = "none";
+
+  const m = location.hash.match(/^#(haber|arsiv)-(\d+)/);
+  if (m) haberAc(+m[2] - 1, m[1] === "arsiv" ? R : H, m[1]);
 
   /* ---- Proje Bölümü: "Proje" Kategorili Haberler ---- */
   const projeHaberleri = H.map((h, i) => [h, i]).filter(([h]) => /proje/i.test(h.kategori));
@@ -407,7 +445,7 @@
   }
 
   /* ---- Galeri & Canlı Fotoğraf Şeridi ---- */
-  const toplamFoto = A.reduce((t, a) => t + a.fotolar.length, 0) + H.reduce((t, h) => t + h.fotolar.length, 0);
+  const toplamFoto = A.reduce((t, a) => t + a.fotolar.length, 0) + H.reduce((t, h) => t + h.fotolar.length, 0) + R.reduce((t, r) => t + r.fotolar.length, 0);
   $("#fotoSayisi").dataset.say = toplamFoto;
   $("#fotoSayisi").textContent = toplamFoto;
 

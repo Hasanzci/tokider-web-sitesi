@@ -1,0 +1,8 @@
+baslik: Malatyalı Gençler Sabah Namazında Buluştu
+kategori: Gençlik
+ozet: Malatyalı gençler sabah namazında Yeni Cami'de buluştu.
+soz: Allah'ın mescitlerini ancak Allah'a ve ahiret gününe iman eden, namazı dosdoğru kılan, zekatı veren ve Allah'tan başkasından korkmayan kimseler imar eder. İşte doğru yola ermişlerden olmaları umulanlar bunlardır.
+kaynak: Tevbe Suresi, 18. Ayet · Diyanet İşleri Başkanlığı Meali
+arapca: إِنَّمَا يَعْمُرُ مَسَٰجِدَ ٱللَّهِ مَنْ ءَامَنَ بِٱللَّهِ وَٱلْيَوْمِ ٱلْءَاخِرِ وَأَقَامَ ٱلصَّلَوٰةَ وَءَاتَى ٱلزَّكَوٰةَ وَلَمْ يَخْشَ إِلَّا ٱللَّهَ ۖ فَعَسَىٰٓ أُو۟لَٰٓئِكَ أَن يَكُونُوا۟ مِنَ ٱلْمُهْتَدِينَ
+---
+Malatyalı gençler sabah namazında Yeni Cami'de buluştu.

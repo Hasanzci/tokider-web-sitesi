@@ -1,0 +1,8 @@
+baslik: Bedir Mescidi'nde İlk Teravih
+kategori: Ramazan
+ozet: Ramazan'ın ilk teravih namazını Bedir Mescidi'nde kıldık.
+soz: Kullarım sana, beni sorduğunda (söyle onlara): Ben çok yakınım. Bana dua ettiği vakit dua edenin dileğine karşılık veririm. O halde (kullarım da) benim davetime uysunlar ve bana inansınlar ki doğru yolu bulalar.
+kaynak: Bakara Suresi, 186. Ayet · Diyanet İşleri Başkanlığı Meali
+arapca: وَإِذَا سَأَلَكَ عِبَادِى عَنِّى فَإِنِّى قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ ٱلدَّاعِ إِذَا دَعَانِ ۖ فَلْيَسْتَجِيبُوا۟ لِى وَلْيُؤْمِنُوا۟ بِى لَعَلَّهُمْ يَرْشُدُونَ
+---
+Ramazan-ı Şerif'in ilk teravih namazını Bedir Mescidi'nde cemaatle eda ettik.

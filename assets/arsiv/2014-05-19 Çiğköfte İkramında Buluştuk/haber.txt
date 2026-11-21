@@ -1,0 +1,8 @@
+baslik: Çiğköfte İkramında Buluştuk
+kategori: İkram
+ozet: Sosyal ve kültürel faaliyetler komisyonumuzun düzenlediği çiğköfte ikramında buluştuk.
+soz: "Hatırlayın ki Rabbiniz size: Eğer şükrederseniz, elbette size (nimetimi) artıracağım ve eğer nankörlük ederseniz hiç şüphesiz azabım çok şiddetlidir! diye bildirmişti."
+kaynak: İbrâhîm Suresi, 7. Ayet · Diyanet İşleri Başkanlığı Meali
+arapca: وَإِذْ تَأَذَّنَ رَبُّكُمْ لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ ۖ وَلَئِن كَفَرْتُمْ إِنَّ عَذَابِى لَشَدِيدٌۭ
+---
+Toki Evleri Eğitim Derneği olarak sosyal ve kültürel faaliyetler komisyonumuzun düzenlediği çiğköfte ikramında buluştuk.

@@ -1,0 +1,8 @@
+baslik: Yaz Okulu Ödüllü Sınavı
+kategori: Yaz Okulu
+ozet: Yaz okulumuzun ödüllü sınavından görüntüler.
+soz: Gerçek hükümdar olan Allah, yücedir. Sana O'nun vahyi tamamlanmazdan önce Kur'an'ı (okumakta) acele etme ve "Rabbim, benim ilmimi artır" de.
+kaynak: Tâhâ Suresi, 114. Ayet · Diyanet İşleri Başkanlığı Meali
+arapca: فَتَعَٰلَى ٱللَّهُ ٱلْمَلِكُ ٱلْحَقُّ ۗ وَلَا تَعْجَلْ بِٱلْقُرْءَانِ مِن قَبْلِ أَن يُقْضَىٰٓ إِلَيْكَ وَحْيُهُۥ ۖ وَقُل رَّبِّ زِدْنِى عِلْمًۭا
+---
+Toki Evleri Eğitim Derneği'nin düzenlemiş olduğu Yaz Okulu'nun ödüllü sınavından görüntüler.

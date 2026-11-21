@@ -5,6 +5,10 @@ TOKİDER sitesi - içerik güncelleyici
 assets/ klasöründe fotoğraf ya da klasör ekleyip sildikten sonra bunu çalıştır:
 
     python guncelle.py        (Windows'ta guncelle.bat'a çift tıklaman yeterli)
+
+  assets/haberler/<NN Başlık>/        -> Manşet ve haberler (haber.txt + fotoğraflar)
+  assets/arsiv/<YYYY-AA-GG Başlık>/   -> "Yıllar İçinde TOKİDER" arşivi (haber.txt + fotoğraflar)
+  assets/galeri/<NN Albüm>/           -> Foto galeri (bilgi.txt + fotoğraflar)
 """
 import json
 import os
@@ -793,6 +797,10 @@ def klasorler(yol):
                    if os.path.isdir(os.path.join(yol, d)) and not d.startswith(".")], key=str.lower)
 
 
+AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
+         "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
+
+
 def url(*p):
     return "/".join(p)
 
@@ -818,6 +826,35 @@ def main():
             "fotolar": fotolar,
         })
 
+    # Arşiv: assets/arsiv/<YYYY-AA-GG Başlık>/  (tarih klasör adından okunur)
+    arsiv = []
+    ak = os.path.join(KOK, "assets", "arsiv")
+    for ad in klasorler(ak):
+        tam = os.path.join(ak, ad)
+        fotolar = [url("assets", "arsiv", ad, f) for f in resimler(tam)]
+        if not fotolar:
+            continue
+        a, metin = txt_oku(os.path.join(tam, "haber.txt"))
+        m = re.match(r"^(\d{4})-(\d{2})-(\d{2})\s*(.*)$", ad)
+        if m:
+            yil, ay, gun, kalan = m.groups()
+            iso, tarih = f"{yil}-{ay}-{gun}", f"{int(gun)} {AYLAR[int(ay) - 1]} {yil}"
+        else:
+            yil, iso, tarih, kalan = "", "", "", ad
+        arsiv.append({
+            "baslik": a.get("baslik") or kalan.strip() or ad,
+            "tarih": a.get("tarih") or tarih,
+            "iso": iso, "yil": yil,
+            "kategori": a.get("kategori", "Arşiv"),
+            "ozet": a.get("ozet", ""),
+            "soz": a.get("soz", ""),
+            "kaynak": a.get("kaynak", ""),
+            "arapca": a.get("arapca", ""),
+            "metin": [p.strip().replace("\n", " ") for p in re.split(r"\n\s*\n", metin) if p.strip()],
+            "fotolar": fotolar,
+        })
+    arsiv.sort(key=lambda x: x["iso"], reverse=True)
+
     albumler = []
     gk = os.path.join(KOK, "assets", "galeri")
     for ad in klasorler(gk):
@@ -842,6 +879,7 @@ def main():
     veri = {
         "guncelleme": datetime.now().strftime("%d.%m.%Y %H:%M"),
         "haberler": haberler,
+        "arsiv": arsiv,
         "albumler": albumler,
         "ortaklar": ortaklar,
         "ayetler": DIYANET_AYETLER,
@@ -852,7 +890,7 @@ def main():
         f.write("window.SITE_VERI = ")
         json.dump(veri, f, ensure_ascii=False, indent=1)
         f.write(";\n")
-    print(f"Tamam! {len(haberler)} haber, {len(albumler)} albüm ({sum(len(x['fotolar']) for x in albumler)} foto), {len(ortaklar)} ortak logosu, {len(DIYANET_AYETLER)} Diyanet ayeti işlendi.")
+    print(f"Tamam! {len(haberler)} haber, {len(arsiv)} arşiv kaydı ({sum(len(x['fotolar']) for x in arsiv)} foto), {len(albumler)} albüm ({sum(len(x['fotolar']) for x in albumler)} foto), {len(ortaklar)} ortak logosu, {len(DIYANET_AYETLER)} Diyanet ayeti işlendi.")
 
 
 if __name__ == "__main__":
