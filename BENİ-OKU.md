@@ -1,8 +1,20 @@
-# TOKİDER Web Sitesi
+# TOKİDER Web Sitesi (v2)
+
+**Canlı Site (GitHub Pages):** https://hasanzci.github.io/tokider-web-sitesi/  
+**GitHub Deposu:** https://github.com/Hasanzci/tokider-web-sitesi
 
 `index.html`'e çift tıklayınca site tarayıcıda açılır. Sunucu ya da kurulum gerekmez.
 
-## Klasör yapısı
+## Yenilikler ve Özellikler
+- **Diyanet İşleri Başkanlığı Resmi Kur'an-ı Kerim Meali Doğrulaması:** Sitedeki tüm ayet-i kerimeler (üst kayan şerit, Günün Ayet-i Kerimesi kartı, 82 ayetlik *Kur'an-ı Kerim'den Hikmetler* seçkisi, 13 haber ve 10 galeri albümü) **Diyanet İşleri Başkanlığı / Türkiye Diyanet Vakfı** resmi mealiyle birebir kontrol edilmiş ve Arapça mushaf metinleriyle birlikte eklenmiştir.
+- **Yavaşlatılmış & Kontrol Edilebilir Üst Ayet Şeridi:** En üstteki kayan ayet şeridinin hızı metin uzunluğuna göre dingin ve rahat okunur bir hıza (~25px/sn) düşürülmüştür. Üzerine gelindiğinde duraklar; ayrıca şerit üzerindeki **Duraklat (`⏸`)** ve **Hız (`Yavaş / Normal`)** butonlarıyla kontrol edilebilir.
+- **Yeni Bölümler & Zenginleştirilmiş Tasarım:**
+  - **Kur'an-ı Kerim'den Hikmetler (82 Ayet Seçkisi):** 6 konu başlığında (*İlim & Hikmet*, *İnfak & Yardımlaşma*, *Ahlak & Kardeşlik*, *İbadet & Takva*, *Sabır & Tevekkül*, *Aile & Gençlik*) filtreleme, anlık arama, Arapça aç/kapat, rastgele ayet seçimi ve tek tıkla kopyalama.
+  - **Hakkımızda, Temel İlkelerimiz & Tarihçe Zaman Çizelgesi:** 2012 kuruluşundan bugüne TOKİDER'in yolculuğu ve 4 temel ilkesi.
+  - **Fotoğraflı Faaliyet Kartları & Canlı Galeri Şeridi:** Arşiv fotoğraflarıyla zenginleştirilmiş faaliyet kartları, akıcı fotoğraf şeridi ve Sıkça Sorulan Sorular (S.S.S.) bölümü.
+  - **Tam Mobil ve Tablet Senkronizasyonu:** Mobil çekmece menü, dokunmatik kaydırma (manşet ve lightbox), okuma ilerleme çubuğu ve yukarı çık butonu.
+
+## Klasör Yapısı
 
 ```
 assets/
@@ -12,34 +24,11 @@ assets/
   logo/       → amblem.svg (keskin vektör logo) + orijinal logo
 ```
 
-### Yeni haber eklemek
-1. `assets/haberler/` içinde yeni bir klasör aç: `00 Kandil Programımız` gibi.
-   Baştaki numara sırayı belirler, **küçük numara en üstte görünür**. İlk 8 haber manşette döner.
-2. Fotoğrafları klasöre at. Kapak olmasını istediğin fotoğrafın adını `kapak` ile başlat.
-3. İstersen klasöre `haber.txt` koy (başka bir haberin dosyasını kopyalayıp düzenleyebilirsin):
+### Değişikliklerden Sonra
+1. **`guncelle.bat`'a çift tıkla** (veya `python guncelle.py` çalıştır).
+2. GitHub'a göndermek için:
+   ```powershell
+   git add -A
+   git commit -m "İçerik güncellendi"
+   git push
    ```
-   tarih: Mart 2026
-   kategori: Sohbet
-   ozet: Kısa özet cümlesi.
-   soz: Habere eşlik eden ayet ya da hadis
-   kaynak: Bakara Suresi, 148. Ayet
-   ---
-   Haberin metni. Paragrafları boş satırla ayır.
-   ```
-   `haber.txt` yoksa başlık klasör adından alınır ve sadece fotoğraflar gösterilir.
-
-### Galeriye fotoğraf eklemek
-- Var olan bir albüm klasörüne fotoğraf at ya da yeni albüm klasörü aç (`11 Kandil Geceleri` gibi).
-- Albümdeki `bilgi.txt` dosyasında açıklama, ayet/hadis ve kaynak yazıyor; istediğin gibi değiştirebilirsin.
-
-### Değişikliklerden sonra
-**`guncelle.bat`'a çift tıkla.** Mac/Linux'ta `python3 guncelle.py` çalıştır.
-Bunun için bilgisayarda Python yüklü olmalı (python.org). Python'la uğraşmak istemezsen Claude'a "güncelle" demen de yeter.
-
-## Yayına almadan önce kontrol et
-- **IBAN**: broşürden okundu, `index.html` içinde `id="iban"` satırında duruyor. Mutlaka dernekten teyit et.
-- **Ayet ve hadisler**: meal ve kaynaklar yaygın Türkçe meallerden alındı. Yine de dernek hocasına bir kez kontrol ettir.
-- **Haber metinleri**: eski Wix sitesindeki kısa özetlerden genişletildi. Eksik ya da yanlış bilgi varsa ilgili `haber.txt`'yi düzelt.
-
-## Yayına alma
-Klasörün tamamını herhangi bir statik hostinge yükle: Netlify Drop (sürükle-bırak), GitHub Pages ya da tokider.net hostingi.
