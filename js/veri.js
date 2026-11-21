@@ -1,6 +1,6 @@
 // guncelle.py tarafından otomatik oluşturulur. Elle düzenleme.
 window.SITE_VERI = {
- "guncelleme": "21.11.2026 22:58",
+ "guncelleme": "21.11.2026 23:14",
  "haberler": [
   {
    "baslik": "Ankara İstanbul Çanakkale Gezisi",
@@ -1660,16 +1660,12 @@ window.SITE_VERI = {
  ],
  "ortaklar": [
   {
-   "isim": "Anadolu Platformu",
-   "logo": "assets/ortaklar/Anadolu Platformu.png"
-  },
-  {
-   "isim": "Anadolu Öğrenci Birliği",
-   "logo": "assets/ortaklar/Anadolu Öğrenci Birliği.png"
-  },
-  {
    "isim": "Hanımeli Derneği",
    "logo": "assets/ortaklar/Hanımeli Derneği.png"
+  },
+  {
+   "isim": "İnsan ve Değer Hareketi",
+   "logo": "assets/ortaklar/İnsan ve Değer Hareketi.png"
   },
   {
    "isim": "İyilikder Malatya",
