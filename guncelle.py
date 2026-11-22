@@ -876,11 +876,40 @@ def main():
                  "logo": url("assets", "ortaklar", f)}
                 for f in resimler(os.path.join(KOK, "assets", "ortaklar"))]
 
+    # Gazze ve Mescid-i Aksa: assets/gazze/ + kaynaklar.txt
+    gazze_meta = {}
+    gkaynak = os.path.join(KOK, "assets", "gazze", "kaynaklar.txt")
+    if os.path.isfile(gkaynak):
+        with open(gkaynak, encoding="utf-8-sig") as f:
+            for satir in f:
+                satir = satir.strip()
+                if not satir or satir.startswith("#"):
+                    continue
+                parcalar = [p.strip() for p in satir.split("|")]
+                if len(parcalar) >= 5:
+                    gazze_meta[parcalar[0]] = {
+                        "baslik": parcalar[1],
+                        "fotografci": parcalar[2],
+                        "lisans": parcalar[3],
+                        "kaynak": parcalar[4],
+                    }
+    gazze = []
+    for f in resimler(os.path.join(KOK, "assets", "gazze")):
+        m = gazze_meta.get(f, {})
+        gazze.append({
+            "foto": url("assets", "gazze", f),
+            "baslik": m.get("baslik") or baslik_coz(os.path.splitext(f)[0]).replace("-", " "),
+            "fotografci": m.get("fotografci", ""),
+            "lisans": m.get("lisans", ""),
+            "kaynak": m.get("kaynak", ""),
+        })
+
     veri = {
         "guncelleme": datetime.now().strftime("%d.%m.%Y %H:%M"),
         "haberler": haberler,
         "arsiv": arsiv,
         "albumler": albumler,
+        "gazze": gazze,
         "ortaklar": ortaklar,
         "ayetler": DIYANET_AYETLER,
     }
@@ -890,7 +919,7 @@ def main():
         f.write("window.SITE_VERI = ")
         json.dump(veri, f, ensure_ascii=False, indent=1)
         f.write(";\n")
-    print(f"Tamam! {len(haberler)} haber, {len(arsiv)} arşiv kaydı ({sum(len(x['fotolar']) for x in arsiv)} foto), {len(albumler)} albüm ({sum(len(x['fotolar']) for x in albumler)} foto), {len(ortaklar)} ortak logosu, {len(DIYANET_AYETLER)} Diyanet ayeti işlendi.")
+    print(f"Tamam! {len(haberler)} haber, {len(arsiv)} arşiv kaydı ({sum(len(x['fotolar']) for x in arsiv)} foto), {len(albumler)} albüm ({sum(len(x['fotolar']) for x in albumler)} foto), {len(gazze)} Gazze fotosu, {len(ortaklar)} ortak logosu, {len(DIYANET_AYETLER)} Diyanet ayeti işlendi.")
 
 
 if __name__ == "__main__":

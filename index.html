@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -49,6 +49,7 @@
       <a href="#faaliyetler">Faaliyetler</a>
       <a href="#projeler">Projeler</a>
       <a href="#arsiv">Arşiv</a>
+      <a href="#gazze">Gazze</a>
       <a href="#galeri">Galeri</a>
       <a href="#sss">S.S.S.</a>
       <a href="#iletisim">İletişim</a>
@@ -56,6 +57,18 @@
     </nav>
     <button class="hamburger" id="hamburger" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
+  <nav class="mobil-hizli-menu" id="mobilHizliMenu" aria-label="Hızlı menü">
+    <a href="#manset" class="aktif-link">Manşet</a>
+    <a href="#haberler">Haberler</a>
+    <a href="#ayetler">Ayetler</a>
+    <a href="#hakkimizda">Hakkımızda</a>
+    <a href="#faaliyetler">Faaliyetler</a>
+    <a href="#arsiv">Arşiv</a>
+    <a href="#gazze">Gazze</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#iletisim">İletişim</a>
+    <a href="#destek" class="mh-destek">Destek Ol</a>
+  </nav>
 </header>
 <div class="menu-perde" id="menuPerde"></div>
 
@@ -380,6 +393,36 @@
   </div>
 </section>
 
+<!-- ============ GAZZE VE MESCİD-İ AKSA FARKINDALIK ============ -->
+<section class="bolum gazze-bolum" id="gazze">
+  <div class="kap">
+    <div class="bolum-bas">
+      <span class="ust-baslik">Farkındalık ve Dayanışma</span>
+      <h2>Gazze ve Mescid-i Aksa</h2>
+      <p>İlk kıblemiz, Haremeyn'den sonra üçüncü haremimiz ve peygamberler mirası <b>Mescid-i Aksa</b> ile direnişin, sabrın ve izzetin şehri <b>Gazze</b>, tüm Müslümanların ortak emaneti ve gönül davasıdır. TOKİDER olarak kurulduğumuz günden bu yana düzenlediğimiz farkındalık stantları, sohbetler ve dualarla Kudüs ve Gazze bilincini diri tutmaya gayret ediyoruz.</p>
+    </div>
+
+    <figure class="gazze-ayet">
+      <div class="gazze-ayet-ust">İsrâ Suresi, 1. Ayet · Diyanet İşleri Başkanlığı Meali</div>
+      <p class="gazze-ayet-arapca" dir="rtl" lang="ar">سُبْحَٰنَ ٱلَّذِىٓ أَسْرَىٰ بِعَبْدِهِۦ لَيْلًۭا مِّنَ ٱلْمَسْجِدِ ٱلْحَرَامِ إِلَى ٱلْمَسْجِدِ ٱلْأَقْصَا ٱلَّذِى بَٰرَكْنَا حَوْلَهُۥ لِنُرِيَهُۥ مِنْ ءَايَٰتِنَآ ۚ إِنَّهُۥ هُوَ ٱلسَّمِيعُ ٱلْبَصِيرُ</p>
+      <blockquote>“Bir gece, kendisine âyetlerimizden bir kısmını gösterelim diye (Muhammed) kulunu Mescidi Harâm'dan, çevresini mübarek kıldığımız Mescidi Aksâ’ya götüren Allah noksan sıfatlardan münezzehtir. O, gerçekten hakkıyla işitendir, hakkıyla görendir.”</blockquote>
+      <figcaption>İsrâ Suresi, 1. Ayet · <span>Diyanet İşleri Başkanlığı Kur'an-ı Kerim Meali</span></figcaption>
+    </figure>
+
+    <div class="gazze-grid" id="gazzeGrid"></div>
+
+    <div class="gazze-dernek" id="gazzeDernekKutu">
+      <div class="gazze-dernek-bas">
+        <h3>Derneğimizin Çalışmalarından</h3>
+        <p>TOKİDER gönüllülerimizin mahallemizde düzenlediği Gazze ve sosyal duyarlılık farkındalık çalışmalarından kareler.</p>
+      </div>
+      <div class="gazze-dernek-grid" id="gazzeDernekGrid"></div>
+    </div>
+
+    <div class="gazze-kaynaklar" id="gazzeKaynaklar"></div>
+  </div>
+</section>
+
 <!-- ============ GALERİ ============ -->
 <section class="bolum" id="galeri">
   <div class="kap">
@@ -484,8 +527,7 @@
     <div class="banka">
       <div class="banka-ust">Ziraat Bankası · Malatya Şubesi (0183)</div>
       <div class="banka-ad" id="hesapAdi">TOKİ Evleri Eğitim Derneği</div>
-      <!-- ⚠ IBAN broşürden okundu, yayına almadan önce dernekten teyit et! -->
-      <div class="iban" id="iban">TR49 0001 0001 0360 6940 1950 01</div>
+      <div class="iban" id="iban">TR49 0001 0001 8360 6940 1950 01</div>
       <div class="banka-butonlar">
         <button type="button" class="btn btn-altin btn-kucuk" id="ibanKopyala">📋 IBAN'ı Kopyala</button>
         <button type="button" class="btn btn-cam btn-kucuk" id="hesapAdKopyala">Dernek Adını Kopyala</button>
@@ -530,6 +572,8 @@
         <a href="#ayetler">Ayet Seçkisi</a>
         <a href="#hakkimizda">Hakkımızda</a>
         <a href="#faaliyetler">Faaliyetler</a>
+        <a href="#arsiv">Arşiv</a>
+        <a href="#gazze">Gazze</a>
         <a href="#galeri">Galeri</a>
         <a href="#destek">Destek Ol</a>
         <a href="#iletisim">İletişim</a>
@@ -580,7 +624,7 @@
   <div class="lb-sayac"></div>
 </div>
 
-<script src="js/veri.js?v=3"></script>
-<script src="js/main.js?v=3"></script>
+<script src="js/veri.js?v=4"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>

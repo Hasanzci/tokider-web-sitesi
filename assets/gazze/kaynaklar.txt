@@ -1,0 +1,8 @@
+# Gazze ve Mescid-i Aksa Fotoğraf Kaynakları (Serbest Lisanslı – Wikimedia Commons)
+# Format: dosya | başlık | fotoğrafçı | lisans | kaynak_url
+01-mescid-i-aksa.jpg | Mescid-i Aksa, Kudüs | Godot13 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Jerusalem-2013-Al-Aqsa_Mosque_04.jpg
+02-kubbetus-sahra-gunbatimi.jpg | Kubbetü's-Sahra, Gün Batımı – Kudüs | Zxc0505 | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Dome_of_the_Rock_in_sunset.JPG
+03-mescid-i-aksa-avlusu.jpg | Harem-i Şerif ve Mescid-i Aksa Avlusu | Gary Todd | CC0 | https://commons.wikimedia.org/wiki/File:Jerusalem_Temple_Mount_Al-Aqsa_Mosque_(29324502388).jpg
+04-mescid-i-aksa-cemaat.jpg | Mescid-i Aksa Avlusunda Müslümanlar | Gerd Eichmann | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Jerusalem-Al-Aqsa-Moschee-30-Moslems-2010-gje.jpg
+05-gazze-omeri-camii.jpg | Gazze Büyük Ömerî Camii | Ramez Habboub | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Omari_Mosque_in_Gaza_City.jpg
+06-gazze-sahili-umut.jpg | Gazze Sahili, Akdeniz Kıyısı | Gisha.org / Mohammed Yousif Azaiza | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Gaza_Beach_9.8.2010_25.jpg

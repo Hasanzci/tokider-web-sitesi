@@ -1,6 +1,6 @@
 // guncelle.py tarafından otomatik oluşturulur. Elle düzenleme.
 window.SITE_VERI = {
- "guncelleme": "21.11.2026 23:14",
+ "guncelleme": "22.11.2026 10:37",
  "haberler": [
   {
    "baslik": "Ankara İstanbul Çanakkale Gezisi",
@@ -1656,6 +1656,50 @@ window.SITE_VERI = {
     "assets/galeri/10 Dernek Merkezimiz/merkez-03.jpg",
     "assets/galeri/10 Dernek Merkezimiz/merkez-04.jpg"
    ]
+  }
+ ],
+ "gazze": [
+  {
+   "foto": "assets/gazze/01-mescid-i-aksa.jpg",
+   "baslik": "Mescid-i Aksa, Kudüs",
+   "fotografci": "Godot13",
+   "lisans": "CC BY-SA 4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Jerusalem-2013-Al-Aqsa_Mosque_04.jpg"
+  },
+  {
+   "foto": "assets/gazze/02-kubbetus-sahra-gunbatimi.jpg",
+   "baslik": "Kubbetü's-Sahra, Gün Batımı – Kudüs",
+   "fotografci": "Zxc0505",
+   "lisans": "CC BY-SA 3.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Dome_of_the_Rock_in_sunset.JPG"
+  },
+  {
+   "foto": "assets/gazze/03-mescid-i-aksa-avlusu.jpg",
+   "baslik": "Harem-i Şerif ve Mescid-i Aksa Avlusu",
+   "fotografci": "Gary Todd",
+   "lisans": "CC0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Jerusalem_Temple_Mount_Al-Aqsa_Mosque_(29324502388).jpg"
+  },
+  {
+   "foto": "assets/gazze/04-mescid-i-aksa-cemaat.jpg",
+   "baslik": "Mescid-i Aksa Avlusunda Müslümanlar",
+   "fotografci": "Gerd Eichmann",
+   "lisans": "CC BY-SA 4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Jerusalem-Al-Aqsa-Moschee-30-Moslems-2010-gje.jpg"
+  },
+  {
+   "foto": "assets/gazze/05-gazze-omeri-camii.jpg",
+   "baslik": "Gazze Büyük Ömerî Camii",
+   "fotografci": "Ramez Habboub",
+   "lisans": "CC BY-SA 4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Omari_Mosque_in_Gaza_City.jpg"
+  },
+  {
+   "foto": "assets/gazze/06-gazze-sahili-umut.jpg",
+   "baslik": "Gazze Sahili, Akdeniz Kıyısı",
+   "fotografci": "Gisha.org / Mohammed Yousif Azaiza",
+   "lisans": "CC BY-SA 2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Gaza_Beach_9.8.2010_25.jpg"
   }
  ],
  "ortaklar": [

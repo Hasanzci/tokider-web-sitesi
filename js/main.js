@@ -14,6 +14,7 @@
   const H = V.haberler || [];
   const A = V.albumler || [];
   const R = V.arsiv || [];
+  const G = V.gazze || [];
   const AYETLER = V.ayetler || [];
 
   /* ---- Bildirim (Toast) & Kopyalama Yardımcısı ---- */
@@ -78,6 +79,7 @@
       if (b.offsetTop - 160 <= y) aktifId = b.id;
     }
     menuLinkler.forEach(a => a.classList.toggle("aktif-link", a.getAttribute("href") === "#" + aktifId));
+    $$("#mobilHizliMenu a:not(.mh-destek)").forEach(a => a.classList.toggle("aktif-link", a.getAttribute("href") === "#" + aktifId));
   }, { passive: true });
 
   if (yukariBtn) yukariBtn.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
@@ -442,6 +444,37 @@
       li.onclick = () => haberAc(i);
       $("#projeRota").appendChild(li);
     });
+  }
+
+  /* ---- Gazze ve Mescid-i Aksa Bölümü ---- */
+  const gazzeGrid = $("#gazzeGrid"), gazzeKaynaklar = $("#gazzeKaynaklar");
+  if (gazzeGrid && G.length) {
+    const gFotolar = G.map(x => x.foto);
+    G.forEach((g, idx) => {
+      const fig = el("figure", "gazze-foto-kart");
+      fig.innerHTML = `<img src="${u(g.foto)}" alt="${kacis(g.baslik)}" loading="lazy">
+        <figcaption><b>${kacis(g.baslik)}</b>${g.fotografci ? `<small>${kacis(g.fotografci)} · ${kacis(g.lisans)}</small>` : ""}</figcaption>`;
+      fig.onclick = () => lbAc(gFotolar, idx);
+      gazzeGrid.appendChild(fig);
+    });
+    if (gazzeKaynaklar) {
+      const atiflar = G.filter(g => g.kaynak).map(g =>
+        `<a href="${kacis(g.kaynak)}" target="_blank" rel="noopener">${kacis(g.baslik)}</a> (${kacis(g.fotografci)}, ${kacis(g.lisans)})`
+      ).join(" · ");
+      gazzeKaynaklar.innerHTML = `<b>Fotoğraf kaynakları (Wikimedia Commons):</b> ${atiflar}`;
+    }
+  }
+  const dernekGrid = $("#gazzeDernekGrid"), dernekKutu = $("#gazzeDernekKutu");
+  const sosyalAlbum = A.find(a => /sosyal duyarl/i.test(a.baslik)) || A.find(a => a.fotolar.some(f => f.includes("09 Sosyal")));
+  if (dernekGrid && sosyalAlbum && sosyalAlbum.fotolar.length) {
+    sosyalAlbum.fotolar.forEach((f, idx) => {
+      const fig = el("figure");
+      fig.innerHTML = `<img src="${u(f)}" alt="TOKİDER Gazze ve Sosyal Duyarlılık Çalışmaları" loading="lazy">`;
+      fig.onclick = () => lbAc(sosyalAlbum.fotolar, idx);
+      dernekGrid.appendChild(fig);
+    });
+  } else if (dernekKutu) {
+    dernekKutu.style.display = "none";
   }
 
   /* ---- Galeri & Canlı Fotoğraf Şeridi ---- */
