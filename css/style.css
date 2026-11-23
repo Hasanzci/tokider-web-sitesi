@@ -64,7 +64,7 @@ p+p{margin-top:1rem}
 @keyframes kay{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
 
 /* ========== Üst Menü ========== */
-.nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--cizgi);transition:.3s}
+.nav{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--cizgi);transition:box-shadow .3s}
 .nav.dolu{box-shadow:0 10px 30px -16px rgba(33,53,110,.28)}
 .nav-ic{display:flex;align-items:center;justify-content:space-between;height:82px;transition:.3s;gap:.9rem}
 .nav.dolu .nav-ic{height:68px}
@@ -74,12 +74,11 @@ p+p{margin-top:1rem}
 .nav.dolu .marka img{height:46px}
 .marka-yazi b{display:block;font-family:"Anton",Impact,sans-serif;font-weight:400;font-size:1.95rem;line-height:1;color:var(--kirmizi);letter-spacing:1px}
 .marka-yazi small{display:block;font-weight:800;font-size:.69rem;color:var(--lacivert);letter-spacing:1.2px;text-transform:uppercase;margin-top:3px}
-.menu{display:flex;align-items:center;gap:.95rem}
-.menu a:not(.btn){text-decoration:none;font-weight:700;font-size:.87rem;color:var(--metin);position:relative;padding:.25rem 0;white-space:nowrap;transition:color .2s}
-.menu a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-3px;height:2.5px;width:0;background:var(--kirmizi);border-radius:2px;transition:width .25s ease}
-.menu a:not(.btn):hover,.menu a.aktif-link:not(.btn){color:var(--yesil)}
-.menu a:not(.btn):hover::after,.menu a.aktif-link:not(.btn)::after{width:100%}
-.hamburger{display:none;background:var(--turkuaz-koyu);border:0;border-radius:10px;cursor:pointer;width:44px;height:44px;flex-direction:column;justify-content:center;gap:6px;padding:10px;z-index:70;transition:.25s}
+.menu{display:flex;align-items:center;gap:.55rem}
+.menu-baslik{display:none}
+.menu a:not(.btn){text-decoration:none;font-weight:700;font-size:.84rem;color:var(--yesil-koyu);position:relative;padding:.38rem .68rem;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.menu a:not(.btn):hover,.menu a.aktif-link:not(.btn){background:var(--yesil-acik);color:var(--yesil)}
+.hamburger{display:none;background:var(--yesil-acik);border:1px solid var(--cizgi);border-radius:10px;cursor:pointer;width:44px;height:44px;flex-direction:column;justify-content:center;gap:6px;padding:10px;z-index:70;transition:.25s}
 .hamburger span{height:2.5px;width:100%;background:var(--yesil-koyu);border-radius:2px;transition:.3s}
 .menu-perde{position:fixed;inset:0;background:rgba(33,53,110,.55);backdrop-filter:blur(3px);z-index:55;opacity:0;visibility:hidden;transition:.3s}
 .menu-perde.acik{opacity:1;visibility:visible}
@@ -537,11 +536,13 @@ p+p{margin-top:1rem}
   .hamburger{display:flex}
   .mobil-hizli-menu{display:flex}
   .gazze-grid,.gazze-dernek-grid{grid-template-columns:repeat(2,1fr)}
-  .menu{position:fixed;inset:0 0 0 auto;width:min(320px,84vw);background:#fff;flex-direction:column;align-items:stretch;padding:5.5rem 1.8rem 2rem;gap:.85rem;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.8,.2,1);box-shadow:-14px 0 44px rgba(0,0,0,.25);overflow-y:auto;z-index:65}
+  .menu{position:fixed;top:0;right:0;bottom:0;height:100vh;height:100dvh;width:min(320px,84vw);background:#fff;flex-direction:column;align-items:stretch;padding:1.2rem 1.5rem 2rem;gap:.35rem;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.8,.2,1);box-shadow:-14px 0 44px rgba(0,0,0,.25);overflow-y:auto;z-index:85}
   .menu.acik{transform:none}
-  .menu a:not(.btn){font-size:1.05rem;padding:.55rem .4rem;border-bottom:1px solid var(--cizgi)}
-  .menu a:not(.btn)::after{display:none}
-  .menu .btn{margin-top:.6rem;text-align:center}
+  .menu-baslik{display:flex;align-items:center;justify-content:space-between;padding-bottom:.8rem;margin-bottom:.4rem;border-bottom:2px solid var(--yesil-acik);font-family:"Playfair Display",serif;font-size:1.3rem;font-weight:800;color:var(--yesil-koyu)}
+  .menu-kapat-btn{width:38px;height:38px;border-radius:50%;border:0;background:var(--yesil-acik);color:var(--yesil-koyu);font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+  .menu-kapat-btn:hover{background:var(--kirmizi);color:#fff}
+  .menu a:not(.btn){font-size:1.02rem;padding:.65rem .75rem;border-radius:10px;border-bottom:1px solid var(--turkuaz-koyu)}
+  .menu .btn{margin-top:.8rem;text-align:center}
   .hamburger.acik span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
   .hamburger.acik span:nth-child(2){opacity:0}
   .hamburger.acik span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}

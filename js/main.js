@@ -63,6 +63,7 @@
     if (perde) perde.classList.toggle("acik", acik);
   };
   if (perde) perde.onclick = menuKapat;
+  if ($("#menuKapatBtn")) $("#menuKapatBtn").onclick = menuKapat;
   $$("a", menu).forEach(a => a.addEventListener("click", menuKapat));
 
   addEventListener("scroll", () => {
